@@ -4432,7 +4432,69 @@ ${completionExample}
 ✅ Aliases לפקודות
 ✅ Bash completion
 ✅ ממשק ויזואלי משופר`;
-function TaskCard({ task, labId }: { task: Task; labId: number }) {
+        }
+        
+        function generate_bash_completion(): string {
+          return completionExample;
+        }
+        
+        if (__name__ === "__main__"):
+        
+// דוגמאות שימוש ב-CLI מתקדם
+if (true) {  // Simulating if __name__ == "__main__" in Python
+  console.log("\\n🛠️ דוגמאות לכלי CLI מתקדם:");
+  
+  const cli = new AdvancedCLI();
+  
+  const advanced_commands = [
+    ["config", "get", "cli.color"],
+    ["config", "set", "cli.theme", "dark"],
+    ["plugins", "list"],
+    ["workflow", "health-check"],
+    ["--help"]
+  ];
+  
+  for (let i = 0; i < advanced_commands.length; i++) {
+    const cmd = advanced_commands[i];
+    console.log(`\\n${i+1}️⃣ פקודה מתקדמת: devops-cli ${cmd.join(' ')}`);
+    console.log("-".repeat(60));
+    
+    try {
+      const exit_code = cli.run(cmd);
+      const status = exit_code === 0 ? "✅ הצליח" : "⚠️ שגיאה";
+      console.log(`\\n${status} (קוד: ${exit_code})`);
+    } catch (e) {
+      if (e instanceof SystemExit) {
+        // pass
+      } else {
+        console.log(CLIColors.error(`שגיאה: ${e}`));
+      }
+    }
+  }
+  
+  // יצירת bash completion
+  console.log("\\n📝 יצירת Bash Completion:");
+  const completion = generate_bash_completion();
+  const completion_file = "/tmp/devops-cli-completion.bash";
+  
+  try {
+    // In a real environment, this would write to file
+    console.log(CLIColors.success(`Bash completion נוצר: ${completion_file}`));
+    console.log(CLIColors.info("להפעלה הוסף: source /tmp/devops-cli-completion.bash"));
+  } catch (e) {
+    console.log(CLIColors.error(`שגיאה ביצירת completion: ${e}`));
+  }
+  
+  console.log("\\n🏆 CLI מתקדם מוכן לשימוש!");
+  console.log(CLIColors.info("תכונות מתקדמות:"));
+  console.log("  ✅ מערכת plugins");
+  console.log("  ✅ קונפיגורציה מתקדמת");
+  console.log("  ✅ Workflows לאוטומציה");
+  console.log("  ✅ לוגים מתקדמים");
+  console.log("  ✅ Aliases לפקודות");
+  console.log("  ✅ Bash completion");
+  console.log("  ✅ ממשק ויזואלי משופר");
+}
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
   const [isCompleted, setIsCompleted] = useState(false);
