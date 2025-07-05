@@ -4356,28 +4356,28 @@ class AdvancedCLI:
 
 def generate_bash_completion():
     \"\"\"יצירת bash completion\"\"\"
-    completion_script = '''
+    completion_script = `
 _devops_cli_completion() {
     local cur prev commands
     COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    cur="\${COMP_WORDS[COMP_CWORD]}"
+    prev="\${COMP_WORDS[COMP_CWORD-1]}"
     
     commands="server monitor deploy config plugins workflow"
     server_commands="status start stop"
     monitor_commands="cpu memory disk"
     
-    if [[ ${COMP_CWORD} == 1 ]]; then
-        COMPREPLY=($(compgen -W "${commands}" -- ${cur}))
-    elif [[ ${prev} == "server" ]]; then
-        COMPREPLY=($(compgen -W "${server_commands}" -- ${cur}))
-    elif [[ ${prev} == "monitor" ]]; then
-        COMPREPLY=($(compgen -W "${monitor_commands}" -- ${cur}))
+    if [[ \${COMP_CWORD} == 1 ]]; then
+        COMPREPLY=($(compgen -W "\${commands}" -- \${cur}))
+    elif [[ \${prev} == "server" ]]; then
+        COMPREPLY=($(compgen -W "\${server_commands}" -- \${cur}))
+    elif [[ \${prev} == "monitor" ]]; then
+        COMPREPLY=($(compgen -W "\${monitor_commands}" -- \${cur}))
     fi
 }
 
 complete -F _devops_cli_completion devops-cli
-'''
+`;
     return completion_script
 
 # הדגמה מתקדמת
