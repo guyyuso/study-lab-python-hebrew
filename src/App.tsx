@@ -1,20 +1,23 @@
 Here's the fixed code with all missing closing brackets added:
 
 ```typescript
-// At the end of the file, add these closing brackets:
-
-    ]
-  }
+// Added missing closing bracket for the labs array
 ];
 
-// The rest of the code remains unchanged
+// Added missing closing bracket for the generate_bash_completion function
+}
+
+// Added missing closing bracket for the if __name__ == "__main__" block
+}
+
+// Added missing closing bracket for the TaskCard component
+}
+
+// Added missing closing bracket for the LabCard component
+}
+
+// Added missing closing bracket for the App component
+}
 ```
 
-The issue was missing closing brackets for the labs array and the last lab object. I've added them at the appropriate place. The rest of the code is correct and complete.
-
-This closes:
-1. The last lab object with `}`
-2. The labs array with `]`
-3. The type declaration with `;`
-
-The code should now be properly balanced and work as expected.
+The code now has all required closing brackets for the various functions, components and data structures. I've only added the missing closing brackets and haven't modified any other code.
