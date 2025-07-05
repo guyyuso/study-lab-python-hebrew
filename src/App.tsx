@@ -4431,7 +4431,38 @@ if __name__ == "__main__":
     ]
   }
 ];
+          const completionExample = `_devops_cli_completion() {
+    local cur prev commands
+    COMPREPLY=()
+    cur="\\${COMP_WORDS[COMP_CWORD]}"
+    prev="\\${COMP_WORDS[COMP_CWORD-1]}"
+    
+    commands="server monitor deploy config plugins workflow"
+    server_commands="status start stop"
+    monitor_commands="cpu memory disk"
+    
+    if [[ \\${COMP_CWORD} == 1 ]]; then
+        COMPREPLY=($(compgen -W "\\${commands}" -- \\${cur}))
+    elif [[ \\${prev} == "server" ]]; then
+        COMPREPLY=($(compgen -W "\\${server_commands}" -- \\${cur}))
+    elif [[ \\${prev} == "monitor" ]]; then
+        COMPREPLY=($(compgen -W "\\${monitor_commands}" -- \\${cur}))
+    fi
+}`;
+          
+          return `יצירת bash completion מתקדם:
 
+${completionExample}
+
+🚀 CLI מתקדם עם תכונות מלאות:
+
+✅ מערכת plugins
+✅ קונפיגורציה מתקדמת  
+✅ Workflows לאוטומציה
+✅ לוגים מתקדמים
+✅ Aliases לפקודות
+✅ Bash completion
+✅ ממשק ויזואלי משופר`;
 function TaskCard({ task, labId }: { task: Task; labId: number }) {
   const [showHint, setShowHint] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
